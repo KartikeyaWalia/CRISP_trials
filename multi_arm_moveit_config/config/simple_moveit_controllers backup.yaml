@@ -1,0 +1,268 @@
+controller_list:
+  - name: crisp_1_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+  - name: crisp_2_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+  - name: crisp_3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+  - name: crisp_4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_1n2_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+  - name: crisp_1n3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+  - name: crisp_1n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_2n3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+  - name: crisp_2n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_3n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_1n2n3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+  - name: crisp_1n2n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_1n3n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_2n3n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6
+  - name: crisp_1n2n3n4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - crisp_1_j1
+      - crisp_1_j2
+      - crisp_1_j3
+      - crisp_1_j4
+      - crisp_1_j5
+      - crisp_1_j6
+      - crisp_2_j1
+      - crisp_2_j2
+      - crisp_2_j3
+      - crisp_2_j4
+      - crisp_2_j5
+      - crisp_2_j6
+      - crisp_3_j1
+      - crisp_3_j2
+      - crisp_3_j3
+      - crisp_3_j4
+      - crisp_3_j5
+      - crisp_3_j6
+      - crisp_4_j1
+      - crisp_4_j2
+      - crisp_4_j3
+      - crisp_4_j4
+      - crisp_4_j5
+      - crisp_4_j6

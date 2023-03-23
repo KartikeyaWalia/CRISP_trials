@@ -1,0 +1,22 @@
+
+# not used yet
+controller_list:
+  - name: "crisp_1_arm"
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      joints: [crisp_1_j1, crisp_1_j2, crisp_1_j3, crisp_1_j4, crisp_1_j5, crisp_1_j6]
+
+  - name: "crisp_2_arm"
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      joints: [crisp_2_j1, crisp_2_j2, crisp_2_j3, crisp_2_j4, crisp_2_j5, crisp_2_j6]
+
+  - name: "crisp_3_arm"
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      joints: [crisp_3_j1, crisp_3_j2, crisp_3_j3, crisp_3_j4, crisp_3_j5, crisp_3_j6]
+
+  - name: "crisp_4_arm"
+      action_ns: follow_joint_trajectory
+      type: FollowJointTrajectory
+      joints: [crisp_4_j1, crisp_4_j2, crisp_4_j3, crisp_4_j4, crisp_4_j5, crisp_4_j6]

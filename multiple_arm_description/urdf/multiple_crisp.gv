@@ -1,0 +1,152 @@
+digraph G {
+node [shape=box];
+"world" [label="world"];
+"conveyor" [label="conveyor"];
+"base1" [label="base1"];
+"crisp_1_base_link" [label="crisp_1_base_link"];
+"crisp_1_shoulder_link" [label="crisp_1_shoulder_link"];
+"crisp_1_shoulder_bend" [label="crisp_1_shoulder_bend"];
+"crisp_1_tube1" [label="crisp_1_tube1"];
+"crisp_1_elbow_link" [label="crisp_1_elbow_link"];
+"crisp_1_elbow_bend" [label="crisp_1_elbow_bend"];
+"crisp_1_tube2" [label="crisp_1_tube2"];
+"crisp_1_wrist_link1" [label="crisp_1_wrist_link1"];
+"crisp_1_wrist_link2" [label="crisp_1_wrist_link2"];
+"crisp_1_wrist_link3" [label="crisp_1_wrist_link3"];
+"crisp_1_ee_mount" [label="crisp_1_ee_mount"];
+"base2" [label="base2"];
+"crisp_2_base_link" [label="crisp_2_base_link"];
+"crisp_2_shoulder_link" [label="crisp_2_shoulder_link"];
+"crisp_2_shoulder_bend" [label="crisp_2_shoulder_bend"];
+"crisp_2_tube1" [label="crisp_2_tube1"];
+"crisp_2_elbow_link" [label="crisp_2_elbow_link"];
+"crisp_2_elbow_bend" [label="crisp_2_elbow_bend"];
+"crisp_2_tube2" [label="crisp_2_tube2"];
+"crisp_2_wrist_link1" [label="crisp_2_wrist_link1"];
+"crisp_2_wrist_link2" [label="crisp_2_wrist_link2"];
+"crisp_2_wrist_link3" [label="crisp_2_wrist_link3"];
+"crisp_2_ee_mount" [label="crisp_2_ee_mount"];
+"base3" [label="base3"];
+"crisp_3_base_link" [label="crisp_3_base_link"];
+"crisp_3_shoulder_link" [label="crisp_3_shoulder_link"];
+"crisp_3_shoulder_bend" [label="crisp_3_shoulder_bend"];
+"crisp_3_tube1" [label="crisp_3_tube1"];
+"crisp_3_elbow_link" [label="crisp_3_elbow_link"];
+"crisp_3_elbow_bend" [label="crisp_3_elbow_bend"];
+"crisp_3_tube2" [label="crisp_3_tube2"];
+"crisp_3_wrist_link1" [label="crisp_3_wrist_link1"];
+"crisp_3_wrist_link2" [label="crisp_3_wrist_link2"];
+"crisp_3_wrist_link3" [label="crisp_3_wrist_link3"];
+"crisp_3_ee_mount" [label="crisp_3_ee_mount"];
+"base4" [label="base4"];
+"crisp_4_base_link" [label="crisp_4_base_link"];
+"crisp_4_shoulder_link" [label="crisp_4_shoulder_link"];
+"crisp_4_shoulder_bend" [label="crisp_4_shoulder_bend"];
+"crisp_4_tube1" [label="crisp_4_tube1"];
+"crisp_4_elbow_link" [label="crisp_4_elbow_link"];
+"crisp_4_elbow_bend" [label="crisp_4_elbow_bend"];
+"crisp_4_tube2" [label="crisp_4_tube2"];
+"crisp_4_wrist_link1" [label="crisp_4_wrist_link1"];
+"crisp_4_wrist_link2" [label="crisp_4_wrist_link2"];
+"crisp_4_wrist_link3" [label="crisp_4_wrist_link3"];
+"crisp_4_ee_mount" [label="crisp_4_ee_mount"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"world" -> "conveyor_to_world" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"conveyor_to_world" -> "conveyor"
+"conveyor" -> "base1_to_conveyor" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base1_to_conveyor" -> "base1"
+"base1" -> "world_arm_1" [label="xyz: 0.3475 0.75 0.906 \nrpy: 0 -0 1.57"]
+"world_arm_1" -> "crisp_1_base_link"
+"crisp_1_base_link" -> "crisp_1_j1" [label="xyz: 0.000152 -4.1e-05 0.09 \nrpy: 0 -0 0"]
+"crisp_1_j1" -> "crisp_1_shoulder_link"
+"crisp_1_shoulder_link" -> "crisp_1_j2" [label="xyz: 0 -0.06 0.05 \nrpy: 0 -0 0"]
+"crisp_1_j2" -> "crisp_1_shoulder_bend"
+"crisp_1_shoulder_bend" -> "crisp_1_Rigid 5" [label="xyz: 0 -0.050001 0.062 \nrpy: 0 -0 0"]
+"crisp_1_Rigid 5" -> "crisp_1_tube1"
+"crisp_1_tube1" -> "crisp_1_Rigid 6" [label="xyz: 0 0 0.168 \nrpy: 0 -0 0"]
+"crisp_1_Rigid 6" -> "crisp_1_elbow_link"
+"crisp_1_elbow_link" -> "crisp_1_j3" [label="xyz: 0 0.060001 0.061801 \nrpy: 0 -0 0"]
+"crisp_1_j3" -> "crisp_1_elbow_bend"
+"crisp_1_elbow_bend" -> "crisp_1_Rigid 8" [label="xyz: -4.1e-05 0.04 -0.061211 \nrpy: 0 -0 0"]
+"crisp_1_Rigid 8" -> "crisp_1_tube2"
+"crisp_1_tube2" -> "crisp_1_Rigid 9" [label="xyz: 0 0 -0.091 \nrpy: 0 -0 0"]
+"crisp_1_Rigid 9" -> "crisp_1_wrist_link1"
+"crisp_1_wrist_link1" -> "crisp_1_j4" [label="xyz: 0 0.0349 -0.041 \nrpy: 0 -0 0"]
+"crisp_1_j4" -> "crisp_1_wrist_link2"
+"crisp_1_wrist_link2" -> "crisp_1_j5" [label="xyz: 0 0.04 0.0349 \nrpy: 0 -0 0"]
+"crisp_1_j5" -> "crisp_1_wrist_link3"
+"crisp_1_wrist_link3" -> "crisp_1_j6" [label="xyz: 0 0.035 0.04 \nrpy: 0 -0 0"]
+"crisp_1_j6" -> "crisp_1_ee_mount"
+"conveyor" -> "base2_to_conveyor" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base2_to_conveyor" -> "base2"
+"base2" -> "world_arm_2" [label="xyz: 0.3475 -0.25 0.906 \nrpy: 0 -0 1.57"]
+"world_arm_2" -> "crisp_2_base_link"
+"crisp_2_base_link" -> "crisp_2_j1" [label="xyz: 0.000152 -4.1e-05 0.09 \nrpy: 0 -0 0"]
+"crisp_2_j1" -> "crisp_2_shoulder_link"
+"crisp_2_shoulder_link" -> "crisp_2_j2" [label="xyz: 0 -0.06 0.05 \nrpy: 0 -0 0"]
+"crisp_2_j2" -> "crisp_2_shoulder_bend"
+"crisp_2_shoulder_bend" -> "crisp_2_Rigid 5" [label="xyz: 0 -0.050001 0.062 \nrpy: 0 -0 0"]
+"crisp_2_Rigid 5" -> "crisp_2_tube1"
+"crisp_2_tube1" -> "crisp_2_Rigid 6" [label="xyz: 0 0 0.168 \nrpy: 0 -0 0"]
+"crisp_2_Rigid 6" -> "crisp_2_elbow_link"
+"crisp_2_elbow_link" -> "crisp_2_j3" [label="xyz: 0 0.060001 0.061801 \nrpy: 0 -0 0"]
+"crisp_2_j3" -> "crisp_2_elbow_bend"
+"crisp_2_elbow_bend" -> "crisp_2_Rigid 8" [label="xyz: -4.1e-05 0.04 -0.061211 \nrpy: 0 -0 0"]
+"crisp_2_Rigid 8" -> "crisp_2_tube2"
+"crisp_2_tube2" -> "crisp_2_Rigid 9" [label="xyz: 0 0 -0.091 \nrpy: 0 -0 0"]
+"crisp_2_Rigid 9" -> "crisp_2_wrist_link1"
+"crisp_2_wrist_link1" -> "crisp_2_j4" [label="xyz: 0 0.0349 -0.041 \nrpy: 0 -0 0"]
+"crisp_2_j4" -> "crisp_2_wrist_link2"
+"crisp_2_wrist_link2" -> "crisp_2_j5" [label="xyz: 0 0.04 0.0349 \nrpy: 0 -0 0"]
+"crisp_2_j5" -> "crisp_2_wrist_link3"
+"crisp_2_wrist_link3" -> "crisp_2_j6" [label="xyz: 0 0.035 0.04 \nrpy: 0 -0 0"]
+"crisp_2_j6" -> "crisp_2_ee_mount"
+"conveyor" -> "base3_to_conveyor" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base3_to_conveyor" -> "base3"
+"base3" -> "world_arm_3" [label="xyz: -0.3475 0.25 0.906 \nrpy: 0 -0 1.57"]
+"world_arm_3" -> "crisp_3_base_link"
+"crisp_3_base_link" -> "crisp_3_j1" [label="xyz: 0.000152 -4.1e-05 0.09 \nrpy: 0 -0 0"]
+"crisp_3_j1" -> "crisp_3_shoulder_link"
+"crisp_3_shoulder_link" -> "crisp_3_j2" [label="xyz: 0 -0.06 0.05 \nrpy: 0 -0 0"]
+"crisp_3_j2" -> "crisp_3_shoulder_bend"
+"crisp_3_shoulder_bend" -> "crisp_3_Rigid 5" [label="xyz: 0 -0.050001 0.062 \nrpy: 0 -0 0"]
+"crisp_3_Rigid 5" -> "crisp_3_tube1"
+"crisp_3_tube1" -> "crisp_3_Rigid 6" [label="xyz: 0 0 0.168 \nrpy: 0 -0 0"]
+"crisp_3_Rigid 6" -> "crisp_3_elbow_link"
+"crisp_3_elbow_link" -> "crisp_3_j3" [label="xyz: 0 0.060001 0.061801 \nrpy: 0 -0 0"]
+"crisp_3_j3" -> "crisp_3_elbow_bend"
+"crisp_3_elbow_bend" -> "crisp_3_Rigid 8" [label="xyz: -4.1e-05 0.04 -0.061211 \nrpy: 0 -0 0"]
+"crisp_3_Rigid 8" -> "crisp_3_tube2"
+"crisp_3_tube2" -> "crisp_3_Rigid 9" [label="xyz: 0 0 -0.091 \nrpy: 0 -0 0"]
+"crisp_3_Rigid 9" -> "crisp_3_wrist_link1"
+"crisp_3_wrist_link1" -> "crisp_3_j4" [label="xyz: 0 0.0349 -0.041 \nrpy: 0 -0 0"]
+"crisp_3_j4" -> "crisp_3_wrist_link2"
+"crisp_3_wrist_link2" -> "crisp_3_j5" [label="xyz: 0 0.04 0.0349 \nrpy: 0 -0 0"]
+"crisp_3_j5" -> "crisp_3_wrist_link3"
+"crisp_3_wrist_link3" -> "crisp_3_j6" [label="xyz: 0 0.035 0.04 \nrpy: 0 -0 0"]
+"crisp_3_j6" -> "crisp_3_ee_mount"
+"conveyor" -> "base4_to_conveyor" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base4_to_conveyor" -> "base4"
+"base4" -> "world_arm_4" [label="xyz: -0.3475 -0.75 0.906 \nrpy: 0 -0 1.57"]
+"world_arm_4" -> "crisp_4_base_link"
+"crisp_4_base_link" -> "crisp_4_j1" [label="xyz: 0.000152 -4.1e-05 0.09 \nrpy: 0 -0 0"]
+"crisp_4_j1" -> "crisp_4_shoulder_link"
+"crisp_4_shoulder_link" -> "crisp_4_j2" [label="xyz: 0 -0.06 0.05 \nrpy: 0 -0 0"]
+"crisp_4_j2" -> "crisp_4_shoulder_bend"
+"crisp_4_shoulder_bend" -> "crisp_4_Rigid 5" [label="xyz: 0 -0.050001 0.062 \nrpy: 0 -0 0"]
+"crisp_4_Rigid 5" -> "crisp_4_tube1"
+"crisp_4_tube1" -> "crisp_4_Rigid 6" [label="xyz: 0 0 0.168 \nrpy: 0 -0 0"]
+"crisp_4_Rigid 6" -> "crisp_4_elbow_link"
+"crisp_4_elbow_link" -> "crisp_4_j3" [label="xyz: 0 0.060001 0.061801 \nrpy: 0 -0 0"]
+"crisp_4_j3" -> "crisp_4_elbow_bend"
+"crisp_4_elbow_bend" -> "crisp_4_Rigid 8" [label="xyz: -4.1e-05 0.04 -0.061211 \nrpy: 0 -0 0"]
+"crisp_4_Rigid 8" -> "crisp_4_tube2"
+"crisp_4_tube2" -> "crisp_4_Rigid 9" [label="xyz: 0 0 -0.091 \nrpy: 0 -0 0"]
+"crisp_4_Rigid 9" -> "crisp_4_wrist_link1"
+"crisp_4_wrist_link1" -> "crisp_4_j4" [label="xyz: 0 0.0349 -0.041 \nrpy: 0 -0 0"]
+"crisp_4_j4" -> "crisp_4_wrist_link2"
+"crisp_4_wrist_link2" -> "crisp_4_j5" [label="xyz: 0 0.04 0.0349 \nrpy: 0 -0 0"]
+"crisp_4_j5" -> "crisp_4_wrist_link3"
+"crisp_4_wrist_link3" -> "crisp_4_j6" [label="xyz: 0 0.035 0.04 \nrpy: 0 -0 0"]
+"crisp_4_j6" -> "crisp_4_ee_mount"
+}

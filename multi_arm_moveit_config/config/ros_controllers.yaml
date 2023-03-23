@@ -1,0 +1,103 @@
+# read the joints of the robot and publish them used by moveit to know where the robot is etc
+# publishes the state of all joints
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# trajectory controllers
+
+crisp_1_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+  - crisp_1_j1
+  - crisp_1_j2
+  - crisp_1_j3
+  - crisp_1_j4
+  - crisp_1_j5
+  - crisp_1_j6
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.05
+    crisp_1_j1: {trajectory: 0.1, goal: 0.1}
+    crisp_1_j2: {trajectory: 0.1, goal: 0.1}
+    crisp_1_j3: {trajectory: 0.1, goal: 0.1}
+    crisp_1_j4: {trajectory: 0.1, goal: 0.1}
+    crisp_1_j5: {trajectory: 0.1, goal: 0.1}
+    crisp_1_j6: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+crisp_2_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+  - crisp_2_j1
+  - crisp_2_j2
+  - crisp_2_j3
+  - crisp_2_j4
+  - crisp_2_j5
+  - crisp_2_j6
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.05
+    crisp_2_j1: {trajectory: 0.1, goal: 0.1}
+    crisp_2_j2: {trajectory: 0.1, goal: 0.1}
+    crisp_2_j3: {trajectory: 0.1, goal: 0.1}
+    crisp_2_j4: {trajectory: 0.1, goal: 0.1}
+    crisp_2_j5: {trajectory: 0.1, goal: 0.1}
+    crisp_2_j6: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+crisp_3_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+  - crisp_3_j1
+  - crisp_3_j2
+  - crisp_3_j3
+  - crisp_3_j4
+  - crisp_3_j5
+  - crisp_3_j6
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.05
+    crisp_3_j1: {trajectory: 0.1, goal: 0.1}
+    crisp_3_j2: {trajectory: 0.1, goal: 0.1}
+    crisp_3_j3: {trajectory: 0.1, goal: 0.1}
+    crisp_3_j4: {trajectory: 0.1, goal: 0.1}
+    crisp_3_j5: {trajectory: 0.1, goal: 0.1}
+    crisp_3_j6: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+
+crisp_4_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+  - crisp_4_j1
+  - crisp_4_j2
+  - crisp_4_j3
+  - crisp_4_j4
+  - crisp_4_j5
+  - crisp_4_j6
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.05
+    crisp_4_j1: {trajectory: 0.1, goal: 0.1}
+    crisp_4_j2: {trajectory: 0.1, goal: 0.1}
+    crisp_4_j3: {trajectory: 0.1, goal: 0.1}
+    crisp_4_j4: {trajectory: 0.1, goal: 0.1}
+    crisp_4_j5: {trajectory: 0.1, goal: 0.1}
+    crisp_4_j6: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10

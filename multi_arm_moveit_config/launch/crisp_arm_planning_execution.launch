@@ -1,0 +1,26 @@
+<launch>
+
+  <rosparam command="load" file="$(find multi_arm_moveit_config)/config/joint_names.yaml"/>
+
+  <include file="$(find multi_arm_moveit_config)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states/]</rosparam> <!--might have to change /ns/joint_states but this isgoing to moveit 
+    and rviz and reading from robot so u have 2 different /joint_states-->
+  </node>
+
+  <include file="$(find multi_arm_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="allow_trajectory_execution" value="true" />
+    <arg name="moveit_controller_manager" value="crisp_arm" /> <!--thiws value is key, as there are 3 diff, simple, ros_control, and crisp_arm-->
+    <arg name="fake_execution_type" value="interpolate" />
+    <arg name="info" value="true" />
+    <arg name="debug" value="false" />
+    <arg name="pipeline" value="ompl" />
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+</launch>

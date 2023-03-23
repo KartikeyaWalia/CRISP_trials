@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="multiple_crisp">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="crisp_1">
+        <chain base_link="base1" tip_link="crisp_1_ee_mount"/>
+    </group>
+    <group name="crisp_2">
+        <chain base_link="base2" tip_link="crisp_2_ee_mount"/>
+    </group>
+    <group name="crisp_3">
+        <chain base_link="base3" tip_link="crisp_3_ee_mount"/>
+    </group>
+    <group name="crisp_4">
+        <chain base_link="base4" tip_link="crisp_4_ee_mount"/>
+    </group>
+    <group name="crisp_1n2">
+        <group name="crisp_1"/>
+        <group name="crisp_2"/>
+    </group>
+    <group name="crisp_1n3">
+        <group name="crisp_1"/>
+        <group name="crisp_3"/>
+    </group>
+    <group name="crisp_1n4">
+        <group name="crisp_1"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_2n3">
+        <group name="crisp_2"/>
+        <group name="crisp_3"/>
+    </group>
+    <group name="crisp_2n4">
+        <group name="crisp_2"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_3n4">
+        <group name="crisp_3"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_1n2n3">
+        <group name="crisp_1"/>
+        <group name="crisp_2"/>
+        <group name="crisp_3"/>
+    </group>
+    <group name="crisp_1n2n4">
+        <group name="crisp_2"/>
+        <group name="crisp_1"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_1n3n4">
+        <group name="crisp_1"/>
+        <group name="crisp_3"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_2n3n4">
+        <group name="crisp_2"/>
+        <group name="crisp_3"/>
+        <group name="crisp_4"/>
+    </group>
+    <group name="crisp_1n2n3n4">
+        <group name="crisp_1"/>
+        <group name="crisp_2"/>
+        <group name="crisp_3"/>
+        <group name="crisp_4"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="arm1_zero" group="crisp_1">
+        <joint name="crisp_1_j1" value="0"/>
+        <joint name="crisp_1_j2" value="0"/>
+        <joint name="crisp_1_j3" value="0"/>
+        <joint name="crisp_1_j4" value="0"/>
+        <joint name="crisp_1_j5" value="0"/>
+        <joint name="crisp_1_j6" value="0"/>
+    </group_state>
+    <group_state name="arm2_zero" group="crisp_2">
+        <joint name="crisp_2_j1" value="0"/>
+        <joint name="crisp_2_j2" value="0"/>
+        <joint name="crisp_2_j3" value="0"/>
+        <joint name="crisp_2_j4" value="0"/>
+        <joint name="crisp_2_j5" value="0"/>
+        <joint name="crisp_2_j6" value="0"/>
+    </group_state>
+    <group_state name="arm3_zero" group="crisp_3">
+        <joint name="crisp_3_j1" value="0"/>
+        <joint name="crisp_3_j2" value="0"/>
+        <joint name="crisp_3_j3" value="0"/>
+        <joint name="crisp_3_j4" value="0"/>
+        <joint name="crisp_3_j5" value="0"/>
+        <joint name="crisp_3_j6" value="0"/>
+    </group_state>
+    <group_state name="arm4_zero" group="crisp_4">
+        <joint name="crisp_4_j1" value="0"/>
+        <joint name="crisp_4_j2" value="0"/>
+        <joint name="crisp_4_j3" value="0"/>
+        <joint name="crisp_4_j4" value="0"/>
+        <joint name="crisp_4_j5" value="0"/>
+        <joint name="crisp_4_j6" value="0"/>
+    </group_state>
+    <group_state name="arm_all_zero" group="crisp_1n2n3n4">
+        <joint name="crisp_1_j1" value="0"/>
+        <joint name="crisp_1_j2" value="0"/>
+        <joint name="crisp_1_j3" value="0"/>
+        <joint name="crisp_1_j4" value="0"/>
+        <joint name="crisp_1_j5" value="0"/>
+        <joint name="crisp_1_j6" value="0"/>
+        <joint name="crisp_2_j1" value="0"/>
+        <joint name="crisp_2_j2" value="0"/>
+        <joint name="crisp_2_j3" value="0"/>
+        <joint name="crisp_2_j4" value="0"/>
+        <joint name="crisp_2_j5" value="0"/>
+        <joint name="crisp_2_j6" value="0"/>
+        <joint name="crisp_3_j1" value="0"/>
+        <joint name="crisp_3_j2" value="0"/>
+        <joint name="crisp_3_j3" value="0"/>
+        <joint name="crisp_3_j4" value="0"/>
+        <joint name="crisp_3_j5" value="0"/>
+        <joint name="crisp_3_j6" value="0"/>
+        <joint name="crisp_4_j1" value="0"/>
+        <joint name="crisp_4_j2" value="0"/>
+        <joint name="crisp_4_j3" value="0"/>
+        <joint name="crisp_4_j4" value="0"/>
+        <joint name="crisp_4_j5" value="0"/>
+        <joint name="crisp_4_j6" value="0"/>
+    </group_state>
+    <group_state name="arm_all_home" group="crisp_1n2n3n4">
+        <joint name="crisp_1_j1" value="-1.57"/>
+        <joint name="crisp_1_j2" value="0"/>
+        <joint name="crisp_1_j3" value="0"/>
+        <joint name="crisp_1_j4" value="0"/>
+        <joint name="crisp_1_j5" value="-1.57"/>
+        <joint name="crisp_1_j6" value="0"/>
+        <joint name="crisp_2_j1" value="-1.57"/>
+        <joint name="crisp_2_j2" value="0"/>
+        <joint name="crisp_2_j3" value="0"/>
+        <joint name="crisp_2_j4" value="0"/>
+        <joint name="crisp_2_j5" value="-1.57"/>
+        <joint name="crisp_2_j6" value="0"/>
+        <joint name="crisp_3_j1" value="-1.57"/>
+        <joint name="crisp_3_j2" value="0"/>
+        <joint name="crisp_3_j3" value="0"/>
+        <joint name="crisp_3_j4" value="0"/>
+        <joint name="crisp_3_j5" value="-1.57"/>
+        <joint name="crisp_3_j6" value="0"/>
+        <joint name="crisp_4_j1" value="-1.57"/>
+        <joint name="crisp_4_j2" value="0"/>
+        <joint name="crisp_4_j3" value="0"/>
+        <joint name="crisp_4_j4" value="0"/>
+        <joint name="crisp_4_j5" value="-1.57"/>
+        <joint name="crisp_4_j6" value="0"/>
+    </group_state>
+    <group_state name="arm_all_pose_1" group="crisp_1n2n3n4">
+        <joint name="crisp_1_j1" value="1.57"/>
+        <joint name="crisp_1_j2" value="0.5"/>
+        <joint name="crisp_1_j3" value="1"/>
+        <joint name="crisp_1_j4" value="1"/>
+        <joint name="crisp_1_j5" value="-0.5"/>
+        <joint name="crisp_1_j6" value="1"/>
+        <joint name="crisp_2_j1" value="1.57"/>
+        <joint name="crisp_2_j2" value="0.5"/>
+        <joint name="crisp_2_j3" value="1"/>
+        <joint name="crisp_2_j4" value="0.006"/>
+        <joint name="crisp_2_j5" value="-0.5"/>
+        <joint name="crisp_2_j6" value="1"/>
+        <joint name="crisp_3_j1" value="1.57"/>
+        <joint name="crisp_3_j2" value="0.5"/>
+        <joint name="crisp_3_j3" value="1"/>
+        <joint name="crisp_3_j4" value="1"/>
+        <joint name="crisp_3_j5" value="-0.5"/>
+        <joint name="crisp_3_j6" value="1"/>
+        <joint name="crisp_4_j1" value="1.57"/>
+        <joint name="crisp_4_j2" value="0.5"/>
+        <joint name="crisp_4_j3" value="1"/>
+        <joint name="crisp_4_j4" value="1"/>
+        <joint name="crisp_4_j5" value="-0.5"/>
+        <joint name="crisp_4_j6" value="1"/>
+    </group_state>
+    <group_state name="arm_all_random" group="crisp_1n2n3n4">
+        <joint name="crisp_1_j1" value="-1.33"/>
+        <joint name="crisp_1_j2" value="1.0319"/>
+        <joint name="crisp_1_j3" value="-1.2612"/>
+        <joint name="crisp_1_j4" value="-0.6191"/>
+        <joint name="crisp_1_j5" value="0.8484"/>
+        <joint name="crisp_1_j6" value="-1.33"/>
+        <joint name="crisp_2_j1" value="-1.0778"/>
+        <joint name="crisp_2_j2" value="0.7109"/>
+        <joint name="crisp_2_j3" value="-1.1924"/>
+        <joint name="crisp_2_j4" value="-0.6879"/>
+        <joint name="crisp_2_j5" value="-1.009"/>
+        <joint name="crisp_2_j6" value="1"/>
+        <joint name="crisp_3_j1" value="1.1466"/>
+        <joint name="crisp_3_j2" value="0.8255"/>
+        <joint name="crisp_3_j3" value="1.3071"/>
+        <joint name="crisp_3_j4" value="-1.4676"/>
+        <joint name="crisp_3_j5" value="1.2153"/>
+        <joint name="crisp_3_j6" value="0.65"/>
+        <joint name="crisp_4_j1" value="1.3988"/>
+        <joint name="crisp_4_j2" value="-0.8484"/>
+        <joint name="crisp_4_j3" value="1.4217"/>
+        <joint name="crisp_4_j4" value="-1.2612"/>
+        <joint name="crisp_4_j5" value="1.3759"/>
+        <joint name="crisp_4_j6" value="0"/>
+    </group_state>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base1" link2="base2" reason="Never"/>
+    <disable_collisions link1="base1" link2="base3" reason="Never"/>
+    <disable_collisions link1="base1" link2="base4" reason="Never"/>
+    <disable_collisions link1="base1" link2="conveyor" reason="Adjacent"/>
+    <disable_collisions link1="base1" link2="crisp_1_base_link" reason="Adjacent"/>
+    <disable_collisions link1="base1" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base2" link2="base3" reason="Never"/>
+    <disable_collisions link1="base2" link2="base4" reason="Never"/>
+    <disable_collisions link1="base2" link2="conveyor" reason="Adjacent"/>
+    <disable_collisions link1="base2" link2="crisp_1_base_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_ee_mount" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_2_base_link" reason="Adjacent"/>
+    <disable_collisions link1="base2" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base3" link2="base4" reason="Never"/>
+    <disable_collisions link1="base3" link2="conveyor" reason="Adjacent"/>
+    <disable_collisions link1="base3" link2="crisp_1_base_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_ee_mount" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_3_base_link" reason="Adjacent"/>
+    <disable_collisions link1="base3" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base3" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base4" link2="conveyor" reason="Adjacent"/>
+    <disable_collisions link1="base4" link2="crisp_1_base_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_ee_mount" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_4_base_link" reason="Adjacent"/>
+    <disable_collisions link1="base4" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="base4" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_1_base_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="conveyor" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_1_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_1_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_base_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_1_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_ee_mount" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_elbow_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_tube2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_elbow_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_1_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_shoulder_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_1_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_1_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_1_wrist_link1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_1_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_1_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_tube2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_1_wrist_link2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_1_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_1_wrist_link3" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_2_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_base_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_2_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_ee_mount" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_elbow_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_tube2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_elbow_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_2_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_shoulder_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_2_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_2_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_2_wrist_link1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_2_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_2_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_tube2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_2_wrist_link2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_2_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_3_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_2_wrist_link3" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_3_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_base_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_3_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_ee_mount" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_elbow_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_tube2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_elbow_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_3_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_shoulder_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_3_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_3_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_3_wrist_link1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_3_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_3_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_tube2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_3_wrist_link2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_3_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_base_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_ee_mount" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_3_wrist_link3" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_base_link" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_base_link" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_4_base_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_base_link" link2="crisp_4_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_base_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_elbow_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_elbow_link" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_ee_mount" link2="crisp_4_wrist_link3" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_elbow_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_tube2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_shoulder_bend" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_shoulder_link" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_elbow_link" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_tube1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_bend" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_link" link2="crisp_4_tube1" reason="Never"/>
+    <disable_collisions link1="crisp_4_shoulder_link" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube1" link2="crisp_4_tube2" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube1" link2="crisp_4_wrist_link1" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube1" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube1" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube2" link2="crisp_4_wrist_link1" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_tube2" link2="crisp_4_wrist_link2" reason="Never"/>
+    <disable_collisions link1="crisp_4_tube2" link2="crisp_4_wrist_link3" reason="Never"/>
+    <disable_collisions link1="crisp_4_wrist_link1" link2="crisp_4_wrist_link2" reason="Adjacent"/>
+    <disable_collisions link1="crisp_4_wrist_link2" link2="crisp_4_wrist_link3" reason="Adjacent"/>
+</robot>
