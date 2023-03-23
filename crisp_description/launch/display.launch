@@ -1,0 +1,24 @@
+<launch>
+
+  <arg name="model" default="$(find crisp_description)/urdf/crisp.urdf.xacro"/>
+  <arg name="gui" default="true"/>
+  <arg name="rvizconfig" default="$(find crisp_description)/launch/urdf.rviz"/>
+  <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+  <arg name="prefix" default=""/>
+  
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(arg model)' transmission_hw_interface:=$(arg transmission_hw_interface) prefix:=$(arg prefix)"/>
+
+
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam param="source_list" subst_value="true">["joint_states"]</rosparam>
+  </node>
+
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+
+
+</launch>
+

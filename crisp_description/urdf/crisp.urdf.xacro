@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find crisp_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find crisp_description)/urdf/crisp.transmission.xacro" />
+<xacro:include filename="$(find crisp_description)/urdf/crisp.gazebo.xacro" />
+
+  <xacro:macro name="crisp_robot" params="prefix transmission_hw_interface:=hardware_interface/PositionJointInterface">
+      <!-- params="prefix joint_limited
+      shoulder_pan_lower_limit:=${-pi}    shoulder_pan_upper_limit:=${pi}
+      shoulder_lift_lower_limit:=${-pi}    shoulder_lift_upper_limit:=${pi}
+      elbow_joint_lower_limit:=${-pi}    elbow_joint_upper_limit:=${pi}
+      wrist_1_lower_limit:=${-pi}    wrist_1_upper_limit:=${pi}
+      wrist_2_lower_limit:=${-pi}    wrist_2_upper_limit:=${pi}
+      wrist_3_lower_limit:=${-pi}    wrist_3_upper_limit:=${pi}
+      
+      safety_limits:=false safety_pos_margin:=0.15
+      safety_k_position:=20"> -->
+
+    <xacro:crisp_arm_transmission prefix="${prefix}" hw_interface="${transmission_hw_interface}" />
+    <xacro:crisp_arm_gazebo prefix="${prefix}" />
+
+    <link name="${prefix}base_link">
+      <inertial>
+        <origin xyz="0.0001603944729273711 -0.0003290623427609323 0.040147411165435416" rpy="0 0 0"/>
+        <mass value="0.6779611564550755"/>
+        <inertia ixx="0.001015" iyy="0.001028" izz="0.001154" ixy="1e-06" iyz="-2e-06" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}shoulder_link">
+      <inertial>
+        <origin xyz="4.0011390054304076e-06 -0.00961982769835694 0.045447590610113775" rpy="0 0 0"/>
+        <mass value="0.4336022449379255"/>
+        <inertia ixx="0.000648" iyy="0.000565" izz="0.000631" ixy="-0.0" iyz="4.1e-05" ixz="-1e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000152 4.1e-05 -0.09" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/shoulder_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000152 4.1e-05 -0.09" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/shoulder_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}shoulder_bend">
+      <inertial>
+        <origin xyz="-3.977242232601117e-06 -0.045711629373503385 0.012907149486671848" rpy="0 0 0"/>
+        <mass value="0.24798358553552216"/>
+        <inertia ixx="0.000406" iyy="0.000397" izz="0.00033" ixy="-1e-06" iyz="2.6e-05" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000152 0.060041 -0.14" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/shoulder_bend.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000152 0.060041 -0.14" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/shoulder_bend.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}tube1">
+      <inertial>
+        <origin xyz="-1.218023921678265e-07 4.832804545162883e-07 0.08400037920452025" rpy="0 0 0"/>
+        <mass value="0.1359760217281118"/>
+        <inertia ixx="0.000423" iyy="0.000423" izz="0.000207" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000152 0.110042 -0.202" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/tube1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000152 0.110042 -0.202" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/tube1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}elbow_link">
+      <inertial>
+        <origin xyz="-3.6405482122238116e-06 0.00835316151743537 0.05001631857596067" rpy="0 0 0"/>
+        <mass value="0.5160292603397482"/>
+        <inertia ixx="0.000905" iyy="0.000814" izz="0.000756" ixy="1e-06" iyz="-7.4e-05" ixz="1e-06"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000152 0.110042 -0.37" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/elbow_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000152 0.110042 -0.37" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/elbow_link.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}elbow_bend">
+      <inertial>
+        <origin xyz="-4.075344323087168e-05 0.03327969273841646 -0.01030636733035839" rpy="0 0 0"/>
+        <mass value="0.16999673358161876"/>
+        <inertia ixx="0.000221" iyy="0.000236" izz="0.000146" ixy="-0.0" iyz="1.7e-05" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000152 0.050041 -0.431801" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/elbow_bend.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000152 0.050041 -0.431801" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/elbow_bend.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}tube2">
+      <inertial>
+        <origin xyz="3.31534666480639e-07 -2.8192269833048067e-07 -0.04549993912254768" rpy="0 0 0"/>
+        <mass value="0.035999481079213504"/>
+        <inertia ixx="3.5e-05" iyy="3.5e-05" izz="2.1e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000111 0.010041 -0.37059" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/tube2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000111 0.010041 -0.37059" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/tube2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}wrist_link1">
+      <inertial>
+        <origin xyz="3.272677325775889e-07 0.0029345319652001097 -0.03169306675776801" rpy="0 0 0"/>
+        <mass value="0.2120397644725218"/>
+        <inertia ixx="0.000175" iyy="0.00017" izz="0.000139" ixy="-0.0" iyz="1.1e-05" ixz="0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000111 0.010041 -0.27959" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000111 0.010041 -0.27959" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}wrist_link2">
+      <inertial>
+        <origin xyz="3.2681919059462765e-07 0.034243790458059184 0.003213444605775856" rpy="0 0 0"/>
+        <mass value="0.17601570721446155"/>
+        <inertia ixx="0.000126" iyy="0.000112" izz="0.000122" ixy="0.0" iyz="-8e-06" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000111 -0.024859 -0.23859" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000111 -0.024859 -0.23859" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}wrist_link3">
+      <inertial>
+        <origin xyz="3.328659660357594e-07 0.003213090953286188 0.03424415588268198" rpy="0 0 0"/>
+        <mass value="0.17601599196961085"/>
+        <inertia ixx="0.000126" iyy="0.000122" izz="0.000112" ixy="0.0" iyz="-8e-06" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000111 -0.064859 -0.27349" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000111 -0.064859 -0.27349" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/wrist_link3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}ee_mount">
+      <inertial>
+        <origin xyz="3.3153611991382443e-07 0.0048156835739818354 6.80155745613753e-08" rpy="0 0 0"/>
+        <mass value="0.025997600599102062"/>
+        <inertia ixx="9e-06" iyy="1.7e-05" izz="8e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.000111 -0.099859 -0.31349" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/ee_mount.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="silver"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.000111 -0.099859 -0.31349" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crisp_description/meshes/ee_mount.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}j1" type="revolute">
+      <origin xyz="0.000152 -4.1e-05 0.09" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}shoulder_link"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}"  effort="9.2" velocity="3.5"/>
+    </joint>
+
+    <joint name="${prefix}j2" type="revolute">
+      <origin xyz="0.0 -0.06 0.05" rpy="0 0 0"/>
+      <parent link="${prefix}shoulder_link"/>
+      <child link="${prefix}shoulder_bend"/>
+      <axis xyz="0.0 -1.0 -0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}"  effort="9.2" velocity="3.5"/>
+    </joint>
+
+    <joint name="${prefix}Rigid 5" type="fixed">
+      <origin xyz="0.0 -0.050001 0.062" rpy="0 0 0"/>
+      <parent link="${prefix}shoulder_bend"/>
+      <child link="${prefix}tube1"/>
+    </joint>
+
+    <joint name="${prefix}Rigid 6" type="fixed">
+      <origin xyz="0.0 0.0 0.168" rpy="0 0 0"/>
+      <parent link="${prefix}tube1"/>
+      <child link="${prefix}elbow_link"/>
+    </joint>
+
+    <joint name="${prefix}j3" type="revolute">
+      <origin xyz="0.0 0.060001 0.061801" rpy="0 0 0"/>
+      <parent link="${prefix}elbow_link"/>
+      <child link="${prefix}elbow_bend"/>
+      <axis xyz="-0.0 1.0 0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}"  effort="9.2" velocity="3.5"/>
+    </joint>
+
+    <joint name="${prefix}Rigid 8" type="fixed">
+      <origin xyz="-4.1e-05 0.04 -0.061211" rpy="0 0 0"/>
+      <parent link="${prefix}elbow_bend"/>
+      <child link="${prefix}tube2"/>
+    </joint>
+
+    <joint name="${prefix}Rigid 9" type="fixed">
+      <origin xyz="0.0 0.0 -0.091" rpy="0 0 0"/>
+      <parent link="${prefix}tube2"/>
+      <child link="${prefix}wrist_link1"/>
+    </joint>
+
+    <joint name="${prefix}j4" type="revolute">
+      <origin xyz="0.0 0.0349 -0.041" rpy="0 0 0"/>
+      <parent link="${prefix}wrist_link1"/>
+      <child link="${prefix}wrist_link2"/>
+      <axis xyz="-0.0 1.0 0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}" effort="3.3" velocity="3.2"/>
+    </joint>
+
+    <joint name="${prefix}j5" type="revolute">
+      <origin xyz="0.0 0.04 0.0349" rpy="0 0 0"/>
+      <parent link="${prefix}wrist_link2"/>
+      <child link="${prefix}wrist_link3"/>
+      <axis xyz="-0.0 0.0 1.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}" effort="3.3" velocity="3.2"/>
+    </joint>
+
+    <joint name="${prefix}j6" type="revolute">
+      <origin xyz="0.0 0.035 0.04" rpy="0 0 0"/>
+      <parent link="${prefix}wrist_link3"/>
+      <child link="${prefix}ee_mount"/>
+      <axis xyz="-0.0 -1.0 -0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+      <limit upper="${2.0 * pi}" lower="${-2.0 * pi}" effort="3.3" velocity="3.2"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>
