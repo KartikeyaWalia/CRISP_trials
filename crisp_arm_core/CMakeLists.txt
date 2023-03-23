@@ -15,10 +15,10 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   actionlib
   actionlib_msgs
-  moveit_msgs
-  moveit_core
-  moveit_ros_planning
-  moveit_ros_planning_interface
+  #moveit_msgs
+  #moveit_core
+  #moveit_ros_planning
+  #moveit_ros_planning_interface
   dynamixel_workbench_msgs
   dynamixel_workbench_toolbox
   message_generation
@@ -118,7 +118,7 @@ generate_messages(
 catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES crisp_arm_core
- CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs geometry_msgs moveit_msgs  moveit_core moveit_ros_planning moveit_ros_planning_interface message_runtime
+ CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs geometry_msgs message_runtime #moveit_msgs  moveit_core moveit_ros_planning moveit_ros_planning_interface 
  DEPENDS EIGEN3
 )
 
