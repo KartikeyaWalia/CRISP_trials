@@ -1,0 +1,14 @@
+joint:
+  names: [crisp_4_j1]
+motion:
+  names: [one,two,three]
+  right:
+    step: [1.57]  # radian
+    time_from_start: 2.0  # sec
+  zero:
+    step: [3.14]
+    time_from_start: 10.0
+  left:
+    step: [-3.14]
+    time_from_start: 30.0
+

@@ -1,0 +1,17 @@
+joint:
+  names: [base_1, shoulder_1, elbow_1, wristone_1, wristtwo_1, wristthree_1,
+          base_2, shoulder_2, elbow_2, wristone_2, wristtwo_2, wristthree_2,
+          base_3, shoulder_3, elbow_3, wristone_3, wristtwo_3, wristthree_3,
+          base_4, shoulder_4, elbow_4, wristone_4, wristtwo_4, wristthree_4,]
+motion:
+  names: [home,zero,left]
+  right:
+    step: [, -3.14, -3.14, -3.14]  # radian
+    time_from_start: 5.0  # sec
+  zero:
+    step: [0.0, 0.0, 0.0, 0.0]
+    time_from_start: 3.0
+  left:
+    step: [3.14, 3.14, 3.14, 3.14]
+    time_from_start: 6.0
+

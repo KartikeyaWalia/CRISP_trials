@@ -1,0 +1,173 @@
+# You can find control table of Dynamixel on emanual (http://emanual.robotis.com/#control-table)
+# Control table item has to be set Camel_Case and not included whitespace
+
+crisp_1_j1:
+  ID: 11
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_1_j2:
+  ID: 12
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_1_j3:
+  ID: 13
+  Return_Delay_Time: 0 
+  Drive_Mode: 1
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 25
+  Max_Position_Limit: 3074
+  Min_Position_Limit: 1023
+
+crisp_1_j4:
+  ID: 14
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_1_j5:
+  ID: 15
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_1_j6:
+  ID: 16
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j1:
+  ID: 21
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j2:
+  ID: 22
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j3:
+  ID: 23
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j4:
+  ID: 24
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j5:
+  ID: 25
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_2_j6:
+  ID: 26
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j1:
+  ID: 31
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j2:
+  ID: 32
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j3:
+  ID: 33
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j4:
+  ID: 34
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j5:
+  ID: 35
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_3_j6:
+  ID: 36
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_4_j1:
+  ID: 41
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_4_j2:
+  ID: 42
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_4_j3:
+  ID: 43
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_4_j4:
+  ID: 44
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+crisp_4_j5:
+  ID: 45
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+  
+crisp_4_j6:
+  ID: 46
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50

@@ -1,0 +1,173 @@
+# You can find control table of Dynamixel on emanual (http://emanual.robotis.com/#control-table)
+# Control table item has to be set Camel_Case and not included whitespace
+
+base_1:
+  ID: 11
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+shoulder_1:
+  ID: 12
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+elbow_1:
+  ID: 13
+  Return_Delay_Time: 0 
+  Drive_Mode: 1
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 25
+  Max_Position_Limit: 3074
+  Min_Position_Limit: 1023
+
+wristone_1:
+  ID: 14
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristtwo_1:
+  ID: 15
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristthree_1:
+  ID: 16
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+base_2:
+  ID: 21
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+shoulder_2:
+  ID: 22
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+elbow_2:
+  ID: 23
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristone_2:
+  ID: 24
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristtwo_2:
+  ID: 25
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristthree_2:
+  ID: 26
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+base_3:
+  ID: 31
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+shoulder_3:
+  ID: 32
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+elbow_3:
+  ID: 33
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristone_3:
+  ID: 34
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristtwo_3:
+  ID: 35
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristthree_3:
+  ID: 36
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+base_4:
+  ID: 41
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+shoulder_4:
+  ID: 42
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+elbow_4:
+  ID: 43
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristone_4:
+  ID: 44
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+
+wristtwo_4:
+  ID: 45
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
+  
+wristthree_4:
+  ID: 46
+  Return_Delay_Time: 0 
+  Operating_Mode: 3
+  Profile_Acceleration: 0
+  Profile_Velocity: 50
