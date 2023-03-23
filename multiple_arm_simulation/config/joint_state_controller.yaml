@@ -1,0 +1,5 @@
+# read the joints of the robot and publish them used by moveit to know where the robot is etc
+# publishes the state of all joints
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50

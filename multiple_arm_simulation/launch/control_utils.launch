@@ -1,0 +1,22 @@
+<launch>
+
+    <!-- Joint state controller --> 
+    <rosparam file="$(find multiple_arm_simulation)/config/joint_state_controller.yaml" command="load"/> <!-- Load joint controller configurations from YAML file to parameter server -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="joint_state_controller"/> 
+
+    <!-- Joint trajectory controller -->
+    <rosparam file="$(find multiple_arm_simulation)/config/trajectory_controller.yaml" command="load" />
+    <node name="arms_trajectory_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" 
+    output="screen" args="crisp_arm" />
+    <!--output="screen" args="crisp_1_trajectory_controller crisp_2_trajectory_controller crisp_3_trajectory_controller crisp_4_trajectory_controller" />-->
+
+    <!-- Robot state publisher -->
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+    <!--    <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node> -->
+    
+
+</launch>

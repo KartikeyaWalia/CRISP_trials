@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Run the main MoveIt executable with trajectory execution -->
+    <include file="$(find multi_arm_moveit_config)/launch/crisp_arm_planning_execution.launch"/>
+
+
+    <!-- Start the simulated robot in an empty Gazebo world -->
+    <include file="$(find multiple_arm_simulation)/launch/start_simulation.launch" />
+
+    <!-- Start the controllers and robot state publisher-->  <!-- ros_control robotis manipulator launch file -->
+    <include file="$(find multiple_arm_simulation)/launch/control_utils.launch"/>
+
+    <!-- Start moveit_rviz with the motion planning plugin -->
+    <include file="$(find multi_arm_moveit_config)/launch/moveit_rviz.launch">
+        <arg name="rviz_config" value="$(find multi_arm_moveit_config)/launch/moveit.rviz" />
+    </include>
+
+</launch>
