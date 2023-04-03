@@ -1,3 +1,8 @@
+do:
+
+git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+catkin_make
+
 to run:
 
 >> roslaunch crisp_arm_core control_crisp_arm_core.launch  
