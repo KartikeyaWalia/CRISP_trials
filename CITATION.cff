@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "CRISP source-code"
+version: 1.0.2
+type: software
+authors:
+  - given-names: Kartikeya
+    family-names: Walia
+    name-suffix: Dr
+    email: kartikeya.walia@ntu.ac.uk
+    name-particle: KARTIKEYA
+    affiliation: Nottingham Trent University
+    orcid: 'https://orcid.org/0000-0002-9191-3571'
+license: MIT
